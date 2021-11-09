@@ -11,6 +11,7 @@ class Game
   def start(p1, p2)
     currentPlayerIndex = 0
     players = [p1, p2]
+
     while p1.livesLeft > 0 && p2.livesLeft > 0
       puts "----- NEW TURN -----"
       print "#{players[currentPlayerIndex].name}: "
@@ -20,9 +21,11 @@ class Game
         puts "Seriously? No!"
         players[currentPlayerIndex].livesLeft -= 1
       end
+
       printScores(players[0].livesLeft, players[1].livesLeft)
       currentPlayerIndex = ((currentPlayerIndex + 1) % 2)
     end
+    
     if p1.livesLeft != 0
       puts "Player 1 wins with a score of #{p1.livesLeft}/3"
     else
